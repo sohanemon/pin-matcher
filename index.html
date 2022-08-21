@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-blue-50">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Match The Pin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: { extend: { fontFamily: { sans: ["Inter", "sans-serif"] } } },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer components {
+        .button {
+          @apply shadow-md rounded-full h-14 w-14  text-blue-900 font-semibold transition-all active:shadow-sm;
+        }
+        .radio {
+          @apply bg-blue-900 rounded-full outline-none;
+        }
+        .alert {
+          @apply w-max px-6 mx-auto rounded-xl;
+        }
+      }
+    </style>
+  </head>
+  <body class="font-mono antialiased select-none">
+    <h1 class="text-4xl font-semibold text-center py-4 text-blue-900">
+      Match The Pin
+    </h1>
+    <div class="w-2/4 min-w-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- ---------------------------- left div ---------------------------- -->
+      <div
+        class="mx-auto flex flex-col justify-center items-center bg-blue-100 w-full rounded-lg h-96 md:h-full"
+      >
+        <div
+          id="generated-pin"
+          class="text-center text-2xl text-blue-900 font-semibold my-4 tracking-[0.4em] font-mono"
+        >
+          <br />
+        </div>
+        <button
+          id="generator"
+          class="bg-blue-500 rounded-full font-semibold text-blue-100 h-32 w-32 ring-4 hover:bg-blue-600 transition-all active:scale-90"
+        >
+          <!-- -- note: active state enables action during an element onclick --- -->
+          Generate<br />Pin
+        </button>
+      </div>
+      <!-- --------------------------- right div ---------------------------- -->
+      <div
+        class="flex flex-col items-center w-full mx-auto p-10 bg-blue-100 rounded-lg"
+      >
+        <input
+          id="pin-input"
+          class="bg-blue-50 h-10 mb-8 font-semibold text-center text-blue-900 text-xl w-full rounded-md"
+          type="text"
+        />
+        <div id="buttons" class="grid grid-cols-3 gap-y-7 gap-x-16">
+          <button class="button">1</button>
+          <button class="button">2</button>
+          <button class="button">3</button>
+          <button class="button">4</button>
+          <button class="button">5</button>
+          <button class="button">6</button>
+          <button class="button">7</button>
+          <button class="button">8</button>
+          <button class="button">9</button>
+          <button id="delete-button" class="button"><</button>
+          <button class="button">0</button>
+          <button id="clear-button" class="button">C</button>
+        </div>
+      </div>
+    </div>
+    <div class="pt-4">
+      <div id="error" style="display: none" class="bg-red-400 alert">
+        ❌ Incorrect Pin
+      </div>
+      <div id="ok" style="display: none" class="bg-green-400 alert">
+        ✅ Pin Successfully Matched
+      </div>
+    </div>
+    <footer class="text-center text-gray-500 relative bottom-5">
+      go to
+      <a class="text-gray-700" href="https://onemanse.vercel.app">@sohanemon</a>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
+</html>
